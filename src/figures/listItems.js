@@ -16,30 +16,30 @@ export const mainListItems = (
       <ListItemIcon>
         
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      <ListItemText primary="UMAP" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         
       </ListItemIcon>
-      <ListItemText primary="Orders" />
+      <ListItemText primary="Violin Plot" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
       
       </ListItemIcon>
-      <ListItemText primary="Customers" />
+      <ListItemText primary="Dot Plot" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
-      <ListItemText primary="Reports" />
+      <ListItemText primary="t-SNE" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
       </ListItemIcon>
-      <ListItemText primary="Integrations" />
+      <ListItemText primary="Summary" />
     </ListItem>
   </div>
 );

@@ -111,7 +111,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 240,
+    height: 500,
   },
 }));
 
@@ -176,13 +176,19 @@ export default function Dashboard() {
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-                <Deposits />
+                <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+                  Toolbar1
+                </Typography>
               </Paper>
             </Grid>
             {/* Recent Orders */}
             <Grid item xs={12}>
-              <Paper className={fixedHeightPaper}>
-                <Orders />
+              <Paper >
+                <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+                  Toolbar2
+                </Typography>
+                <br/>
+                <br/>
               </Paper>
             </Grid>
           </Grid>
