@@ -19,6 +19,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Info from '@material-ui/icons/Info';
+import IconButton from '@material-ui/core/IconButton';
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogActions from '@material-ui/core/DialogActions';
 
 const styles = theme => ({
 
@@ -126,6 +132,8 @@ class AnalysisInputs extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleBasicFieldChange = this.handleBasicFieldChange.bind(this);
+		this.handleClickOpen = this.handleClickOpen.bind(this);
+		this.handleClose = this.handleClose.bind(this);
 		this.state = {
 			basicFieldValues:['',''],
 			filterFieldValues:['0','500','7500','30000','0.1'],
@@ -135,7 +143,8 @@ class AnalysisInputs extends React.Component {
 			tsneCheck:false,
 			dotCheck:false,
 			violinCheck:false,
-			dotColor:''
+			dotColor:'',
+			open:false,
 		}
 	}
 	handleBasicFieldChange(value,i) {
@@ -148,7 +157,7 @@ class AnalysisInputs extends React.Component {
 			}
 		})
 
-	}
+	};
 
 	handlefilterFieldChange(value,i) {
 		this.setState(prevState => {
@@ -160,11 +169,20 @@ class AnalysisInputs extends React.Component {
 			}
 		})
 
-	}
+	};
 
 	handleChange(e,name) {
 		this.setState({[name]:e.target.checked});
 	};
+
+
+	handleClickOpen(e) {
+	    this.setState({open:true});
+	  }
+
+	  handleClose(e) {
+	    this.setState({open:false});
+	  };
 
 	render() {
 		const {classes} = this.props;
@@ -175,33 +193,65 @@ class AnalysisInputs extends React.Component {
 		  			<Typography variant="h7" color="inherit" noWrap>
 		      			Basic Information
 		    		</Typography>
-						{basicFields.map((field,i) => (
-							<TextField
-					        id={field.id}
-					        label={field.label}
-					        type="search"
-					        value={this.state.basicFieldValues[i]}
-					        //onClick={e=>this.setState({basicFieldValue:['']})}
-					        onChange={(e)=>{
-					        		this.handleBasicFieldChange(e.target.value,i);
-					        		//console.log(e.target.value)
-					        	}
-					        }
-					        style={{ margin: 8 }}
-					        placeholder={field.placeholder}
-					        fullWidth
-					        margin="normal"
-					        InputLabelProps={{
-					        	shrink: true,
-					        }}
-					    />
-						))}
+		    		<IconButton className={classes.button} aria-label="info" onClick={this.handleClickOpen}>
+		    			<Info fontSize="small"/>
+		    		</IconButton>
+		    		<Dialog onClose={this.handleClose} aria-labelledby="simple-dialog-title" open={this.state.open}>
+				        <DialogTitle id="simple-dialog-title">Set backup account</DialogTitle>
+				        <DialogContent>
 
+				          sdlfkj
+				    
+				        </DialogContent>
+				        <DialogTitle id="simple-dialog-title">Set backup account</DialogTitle>
+				        <DialogContent>
+
+				          sdlfkj
+				    
+				        </DialogContent>
+				    </Dialog>
+					{basicFields.map((field,i) => (
+						<TextField
+				        id={field.id}
+				        label={field.label}
+				        type="search"
+				        value={this.state.basicFieldValues[i]}
+				        //onClick={e=>this.setState({basicFieldValue:['']})}
+				        onChange={(e)=>{
+				        		this.handleBasicFieldChange(e.target.value,i);
+				        		//console.log(e.target.value)
+				        	}
+				        }
+				        style={{ margin: 8 }}
+				        placeholder={field.placeholder}
+				        fullWidth
+				        margin="normal"
+				        InputLabelProps={{
+				        	shrink: true,
+				        }}
+				    />
+					))}
 
 		  			<Typography variant="h7" color="inherit">
 		      			Filtering Parameters
 		    		</Typography>
+		    		<IconButton className={classes.button} aria-label="info" onClick={this.handleClickOpen}>
+		    			<Info fontSize="small"/>
+		    		</IconButton>
+		    		<Dialog onClose={this.handleClose} aria-labelledby="simple-dialog-title" open={this.state.open}>
+				        <DialogTitle id="simple-dialog-title">Set backup account</DialogTitle>
+				        <DialogContent>
 
+				          sdlfkj
+				    
+				        </DialogContent>
+				        <DialogTitle id="simple-dialog-title">Set backup account</DialogTitle>
+				        <DialogContent>
+
+				          sdlfkj
+				    
+				        </DialogContent>
+				    </Dialog>
 
 					<Grid container spacing={1}>
 		    			{filterFields.map((field,i) =>(
@@ -213,7 +263,7 @@ class AnalysisInputs extends React.Component {
 						        value={this.state.filterFieldValues[i]}
 						        onChange={(e)=>{this.handlefilterFieldChange(e.target.value,i)}}
 						        defaultValue={field.defaultValue}
-						        helperText={field.helperText}
+						        //helperText={field.helperText}
 						        fullWidth
 						        margin="normal"
 						        InputLabelProps={{
@@ -227,7 +277,23 @@ class AnalysisInputs extends React.Component {
 					<Typography variant="h7" color="inherit">
 		      			Analysis Parameters
 		    		</Typography>
+		    		<IconButton className={classes.button} aria-label="info" onClick={this.handleClickOpen}>
+		    			<Info fontSize="small"/>
+		    		</IconButton>
+		    		<Dialog onClose={this.handleClose} aria-labelledby="simple-dialog-title" open={this.state.open}>
+				        <DialogTitle id="simple-dialog-title">Set backup account</DialogTitle>
+				        <DialogContent>
 
+				          sdlfkj
+				    
+				        </DialogContent>
+				        <DialogTitle id="simple-dialog-title">Set backup account</DialogTitle>
+				        <DialogContent>
+
+				          sdlfkj
+				    
+				        </DialogContent>
+				    </Dialog>
 		    		<Grid container spacing={1}>
 		    			{analysisFields.map(field =>(
 		    				<Grid item xs={6} sm={4}>
@@ -236,7 +302,7 @@ class AnalysisInputs extends React.Component {
 						        label={field.label}
 						        style={{ margin: 8 }}
 						        defaultValue={field.defaultValue}
-						        helperText={field.helperText}
+						        //helperText={field.helperText}
 						        fullWidth
 						        margin="normal"
 						        InputLabelProps={{

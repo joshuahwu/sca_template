@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Dashboard from './figures/Dashboard.js';
+import App from './App.js'
+import PopUp from './components/PopUp.js'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<Dashboard />, document.getElementById('root'));
